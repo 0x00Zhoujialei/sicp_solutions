@@ -52,7 +52,7 @@
 ; 便得到了one的procedure定义，two的定义也就显而易见了
 ; 在add-1函数中，加一的动作是由((n f) x)之前的f决定的
 ; 在本题中的加自然是把这个f改成由参数决定的(a f)
-; ((b f) x)得到的procedure作为参数代入(a f)中 自然得到了procedure相加的
+; ((b f) x)得到的procedure作为参数代入(a f)中 自然得到了procedure相加的效果
 (newline)
 (define zero (lambda (f) (lambda (x) x)))
 (define one (lambda (f) (lambda (x) (f x))))

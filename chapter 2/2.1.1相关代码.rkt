@@ -8,10 +8,13 @@
   (let ((g (gcd n d)))
     (cons (/ n g) (/ d g))))
 (define (better-make-rat n d)
-  (let (g (gcd n d))
-  (if (and (> n 0) (< d 0))
-      (cons (/ (- n) g) (/ (- d) g))
-      (cons (/ n g) (/ d g))))
+  (define (maker n d g)
+    (cons (/ n g) (/ d g)))
+  (let ((g (gcd n d)))
+    (if (< (* n d) 0)
+        (maker (- (abs n)) (abs d) (abs g))
+        (maker n d g))))
+  
 
 (define (numer x)
   (car x))
@@ -62,6 +65,9 @@
 (print-rat (mul-rat neg-one-third neg-one-third))
 
 (print-rat (make-rat 4 -6))
-
 (print-rat (make-rat -4 -6))
 (print-rat (make-rat 1 -3))
+
+(print-rat (better-make-rat 1 -3))
+(print-rat (better-make-rat -1 3))
+(print-rat (better-make-rat -4 6))
