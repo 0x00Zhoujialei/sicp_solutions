@@ -1,0 +1,9 @@
+#lang racket
+; 2018/05/15
+; exercise 2.24 - 2.29
+
+; 2.24
+(list 1 (list 2 (list 3 4)))
+; box-and-pointer structure省略
+; tree model也省略
+
