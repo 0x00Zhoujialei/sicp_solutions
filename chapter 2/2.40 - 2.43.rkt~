@@ -1,0 +1,26 @@
+#lang racket
+; 2018/05/18
+; exercise 2.40 - 2.43
+
+; 2.40
+(define nil '())
+(define (enumerate-interval x y)
+  (if (> x y)
+      nil
+      (cons x
+            (enumerate-interval (+ x 1)
+                                y))))
+(define (accumulate op initial seq)
+  (if (null? seq)
+      initial
+      (op (car seq)
+          (accumulate op initial (cdr seq)))))
+(define (flatmap proc seq)
+  (accumulate append nil (map proc seq)))
+(define (unique-pairs n)
+  (flatmap (lambda (i)
+             (map (lambda (j)
+                    (list j i))
+                  (enumerate-interval 1 (- i 1))))
+           (enumerate-interval 2 n)))
+  

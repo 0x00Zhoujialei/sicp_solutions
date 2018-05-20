@@ -133,3 +133,7 @@
                  (map (lambda (p) (cons x p))
                       (permutations (remove x s))))
                s)))
+
+(define (remove item seq)
+  (filter (lambda (x) (not (= x item)))
+          seq))
