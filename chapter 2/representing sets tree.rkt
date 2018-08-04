@@ -173,6 +173,7 @@
       (list->tree il))))
 
 ; test
+(provide t1 t2)
 (define t1 (list->tree (list 1 3 5 7 9 11)))
 (define t2 (list->tree (list 2 4 6 8 10 12 14 16)))
 (intersection-set t1 t2)
