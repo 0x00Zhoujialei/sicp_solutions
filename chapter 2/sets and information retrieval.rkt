@@ -41,4 +41,3 @@
 (require (file "representing sets tree.rkt"))
 (b-lookup 3 t1)
 (b-lookup 8 t2)
-
