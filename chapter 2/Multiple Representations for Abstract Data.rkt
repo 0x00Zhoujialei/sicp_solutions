@@ -158,3 +158,37 @@
 ; d
 ; 我的理解，derivative system不需要更改，只需要install一个包含对sum、product等进行
 ; deriv操作的package即可
+
+; 2.74
+; Because employee's record is itself a set and it is structured differently
+; from division to division, which means we should apply the data-directed
+; programming on the different structure of employee's record as types
+; and the operations on the record as operations
+; Because each division's personnel records consist of a single file which
+; contains a set of records keyed on employees'names and its structure of the set
+; varies from division to division, which means we should apply the data-directed
+; programming on the different structure of division's personnel records as types
+; and the operations on the records as operations
+
+; a
+; 事实上整个系统的重构涉及两部分，第一部分是利用 data-directed programming 技术对不同的
+; division's personnel records进行package并在其之上封装操作
+; 第二部分是利用 data-directed programming 技术对不同的employee's record进行package
+; 进行封装并在其之上封装操作
+; 对于特定的divisons'files，我们需要提供其type symbol 作为 type-tag 信息，如果要对其操作
+; 那么我们也相应的需要提供对应的 type symbol
+
+; b
+; 一如上述所言，如果我们需要 implement get-salary， 我们需要特定的 division's personnel
+; file 的 type symbol， 以及对应的 employee's record 的 type symbol
+
+; c
+; 我的理解是我们需要忽略这个系统的具体实现而以接口的形式来粗略的描述这个系统
+; 实现从略，懒得写
+
+; d
+; 既然前述的系统是以 data-directed programming 技术严格 implemented 的，一个新进的公司
+; 只需要为这个公司的 personnel records 增加一个新的 type symbol, 然后为这个
+; records 内的 employee's record 如果需要的话也增加新的 type symbol，这样就可以在不改变
+; 原系统的代码实现而只为新类型对应的interface操作编写代码即可
+
